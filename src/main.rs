@@ -1,4 +1,4 @@
-//use std::{io, usize};
+use std::{io, usize};
 //mod loops;
 //mod ownership;
 mod do_http;
@@ -27,7 +27,8 @@ async fn main() {
     //loops::loops();
     //    ownership::ownership();
     //    learn_struct::learn_struct();
-    let users =  do_http::do_http().await;
+    let id = std::env::args().nth(1).expect("Enter id");
+    let users =  do_http::do_http_one(&id).await;
     println!("{:?}",users);
 }
 
